@@ -71,22 +71,20 @@ int * take_input(int *max_threads,int *r_count,int *r_arr,int *d){
 		input: max threads((int *)max_threads), resource count((int *) r_count),resource_array (int*)r_arr
 		output: ((int *)R)max resource cap array;
 	*/
-	printf("Enter resource counts\n");
-	scanf("%d",r_count);
+
+	*r_count=5;
 
 	r_arr=(int*) malloc(sizeof(int)*(*r_count));
-	printf("Enter resource values press enter after each value\n");
 	
 	for(int i=0;i<*r_count;i++){
-		scanf("%d",&r_arr[i]);
+		r_arr[i]=5;
 	}
-	printf("Enter max threads\n");
 
-	scanf("%d",max_threads);
-	
-	printf("Deadlock detection check interval\n");
 
-	scanf("%d",d);
+	*max_threads=3;
+
+
+	*d=1;
 
 	return r_arr;
 }
@@ -478,16 +476,9 @@ int main(){
 	d=(int *)malloc(sizeof(int));
 
 	r_arr=take_input(max_threads,r_count,r_arr,d);
-	printf("Enter suitable heuristic [1,2,3,4]:\n");
-	printf("1) Thread which is in deadlock and acquiring max different type of resources will be terminated\n");
-	printf("2) All threads which are in deadlock will be terminated\n");\
-	printf("3) Thread which is in deadlock and acquiring maximum total sum of resources will be terminated\n");
-	printf("4) Thread which is in deadlock and acquiring minimum total sum of resources will be terminated\n");
-	scanf("%d",&h);
-	printf("Enter 1 to turn on logging 0 to turn off [turned off by default]:\n");
-	scanf("%d",&logs);
-	printf("Enter the maximum amount of resource a thread can ask which is selected randomly from the range[0...MAX] [default 5]:\n");
-	scanf("%d",&MAX_RESOURCE);
+	h=4;
+    logs=0;
+    MAX_RESOURCE=6;
 	pthread_t thread[*max_threads];
 	info=create_data(max_threads,r_count,d,r_arr,thread);
 	
