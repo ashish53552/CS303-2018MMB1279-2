@@ -47,6 +47,22 @@ main file:
 gcc -o client client.c -lpthread -ldl
 ./client
 
+
+Example Output:
+if No deadlocks it will show: 
+Detector Starts.......
+Iteration 52
+Else
+Detector Starts.......
+Iteration 53
+Deadlock detected....
+Thread 0 is in deadlock
+Thread 1 is in deadlock
+Thread 2 is in deadlock
+Time interval between deadlocks 5.000000 second. Average time 10.600000Time interval between deadlocks 5.000000 second. Average time 10.600000
+/* In some cases due to random generation it is likely there is no deadlock for some iteration
+so please be patient*/
+
 unit test:
 gcc -o unit_test_heuristic unit_test_heuristic1.c -lpthread -ldl
 ./unit_test_heuristic
@@ -111,12 +127,13 @@ Enter max threads
 Deadlock detection check interval
 1
 Enter suitable heuristic [1,2,3,4]:
-1 /*tested for all 1,2,3,4 case whose result is shown below*/
+1 
 Enter 1 to turn on logging 0 to turn off [turned off by default]:
 0
 Enter the maximum amount of resource a thread can ask which is selected randomly from the range[0...MAX] [default 5]:
 6
 
+/*tested for all heuristic 1,2,3,4 case whose result is shown below*/
 Results:
 
 For case 1- Thread which is in deadlock and acquiring max different type of resources will be terminated
