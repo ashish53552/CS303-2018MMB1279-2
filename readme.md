@@ -49,7 +49,7 @@ gcc -o client client.c -lpthread -ldl
 
 
 Example Output:
-if No deadlocks it will show: 
+if No deadlocks it will show:
 Detector Starts.......
 Iteration 52
 Else
